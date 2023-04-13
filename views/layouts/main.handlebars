@@ -14,17 +14,28 @@
         <header>
             <nav class="navbar navbar-expand-sm bg-light">
         
-                <!-- Links -->
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="../homepage.handlebars">Home</a>
                     </li>
+                    {{!-- change to logout when logged in --}}
+                    {{#if logged_in}}
                     <li class="nav-item">
-                        <a class="nav-link" href="../login.handlebars">Login</a>
+                        {{!-- make file for logout.js and link <script src="/js/logout.js"></script>--}}
+                        <a class="nav-link" href="../logout.js">Logout</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="../profile.handlebars">Profile</a>
                     </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="../login.handlebars">Login</a>
+                    </li>
+
+                    {{/if}}
+                    {{!-- only show if user is logged in --}}
+                    
                 </ul>
         
                 <form class="form-inline my-2 my-lg-0">
@@ -33,6 +44,11 @@
                 </form>
             </nav>
         </header>
+
     </div>
+    <main>
+        {{{ body }}}
+    </main>
+
 </body>
 </html>
