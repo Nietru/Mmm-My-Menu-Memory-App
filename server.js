@@ -11,6 +11,7 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
+// .env.PORT checks for existing PORT provided by Heroku, our deployment destination, otherwise use 3001
 const PORT = process.env.PORT || 3001;
 
 //sets up session to connect with our sequelize db

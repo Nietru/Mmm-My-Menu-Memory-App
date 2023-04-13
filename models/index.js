@@ -1,13 +1,15 @@
-const Recipe = require('./recipe');
-const Ingredients = require('./ingredients');
-const Measurements = require('./measurements');
-const MeasurementQty = require('./measurementQty');
+const Recipe = require("./recipe");
+const Ingredients = require("./ingredient");
+const Measurements = require("./measurement");
+const MeasurementQty = require("./measurement_qty");
 
 Ingredients.belongsTo(Recipe, {
-    foreignKey: 'recipe_id'
+  foreignKey: "recipe_id",
 });
 
 Recipe.hasMany(Ingredients, {
-    foreignKey: 'recipe_id',
-    onDelete: 'SET NULL',
+  foreignKey: "recipe_id",
+  onDelete: "SET NULL",
 });
+
+// need to finish this
