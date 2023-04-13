@@ -9,11 +9,23 @@ Measurements_units.init(
         measurement_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
-        measurement_description: {
+        measurement_units: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        qty_amount: {
+            type: DataTypes.DOUBLE,
+            allowNull: false
+        },
+        ingredient_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'ingredients',
+                key: 'id',
+            }
         }
     },
     {
