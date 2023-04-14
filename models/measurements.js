@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
-class Measurements_units extends Model {}
+class Measurements extends Model {}
 
-Measurements_units.init(
+Measurements.init(
     {
         measurement_id: {
             type: DataTypes.INTEGER,
@@ -26,7 +26,14 @@ Measurements_units.init(
                 model: 'ingredients',
                 key: 'id',
             }
-        }
+        },
+        recipe_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'recipe',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,
@@ -37,4 +44,4 @@ Measurements_units.init(
       }
 );
 
-module.exports = Measurements_units;
+module.exports = Measurements;
