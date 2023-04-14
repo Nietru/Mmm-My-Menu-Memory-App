@@ -6,7 +6,7 @@ class Measurements extends Model {}
 
 Measurements.init(
     {
-        measurement_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -40,7 +40,7 @@ Measurements.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'measurement_units',
+        modelName: 'measurements',
       }
 );
 

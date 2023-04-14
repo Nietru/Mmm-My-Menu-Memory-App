@@ -6,10 +6,11 @@ class Ingredients extends Model {}
 
 Ingredients.init(
     {
-        ingredient_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true,
         },
         ingredient_name: {
             type: DataTypes.STRING,

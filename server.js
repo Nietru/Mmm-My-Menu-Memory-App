@@ -43,8 +43,8 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // ------------------------------------------------------- not sure about this code yet t.t.
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 // -------------------------------------------------------
 // Set up passportjs
 app.use("/", indexRouter);
@@ -58,39 +58,39 @@ app.use(routes);
 
 // Define the local strategy for Passport.js
 //  ------------------------------------------------------- not sure about this code yet t.t.
-passport.use(
-  new LocalStrategy(
-    {
-      usernameField: "email",
-      passwordField: "password",
-    },
-    (email, password, done) => {
-      User.findOne({
-        where: { email: email },
-      })
-        .then((user) => {
-          if (!user) {
-            return done(null, false, { message: "Incorrect email." });
-          }
+// passport.use(
+//   new LocalStrategy(
+//     {
+//       usernameField: "email",
+//       passwordField: "password",
+//     },
+//     (email, password, done) => {
+//       User.findOne({
+//         where: { email: email },
+//       })
+//         .then((user) => {
+//           if (!user) {
+//             return done(null, false, { message: "Incorrect email." });
+//           }
 
-          bcrypt.compare(password, user.password, (err, result) => {
-            if (err) {
-              return done(err);
-            }
+//           bcrypt.compare(password, user.password, (err, result) => {
+//             if (err) {
+//               return done(err);
+//             }
 
-            if (!result) {
-              return done(null, false, { message: "Incorrect password." });
-            }
+//             if (!result) {
+//               return done(null, false, { message: "Incorrect password." });
+//             }
 
-            return done(null, user);
-          });
-        })
-        .catch((err) => {
-          return done(err);
-        });
-    }
-  )
-);
+//             return done(null, user);
+//           });
+//         })
+//         .catch((err) => {
+//           return done(err);
+//         });
+//     }
+//   )
+// );
 //  ------------------------------------------------------------
 
 sequelize.sync({ force: false }).then(() => {

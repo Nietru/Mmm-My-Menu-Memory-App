@@ -21,8 +21,9 @@ Ingredients.belongsTo(Recipe, {
     foreignKey: 'recipe_id'
 });
 
-Ingredients.hasMany(Measurements,{
-    foreignKey: 'measurement_id'
+
+Ingredients.belongsTo(Measurements,{
+    foreignKey: 'ingredient_id'
 });
 
 module.exports - {
