@@ -2,6 +2,9 @@ const express = require("express");
 // express-session will use cookies by default
 const session = require("express-session");
 const routes = require("./controllers");
+// for login and password auth via passportjs
+const indexRouter = require("./controllers/index");
+const authRouter = require("./controllers/auth");
 // for handlebars
 const exphbs = require("express-handlebars");
 const helpers = require("./utils/helpers");
@@ -34,9 +37,13 @@ const hbs = exphbs.create({ helpers });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+// for login and password auth via passportjs
+app.use("/", indexRouter);
+app.use("/", authRouter);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
