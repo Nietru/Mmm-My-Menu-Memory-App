@@ -1,7 +1,12 @@
+
+{{#if message}}
+  <div class="alert alert-danger">{{message}}</div>
+{{/if}}
+
 <div class="d-flex flex-column align-items-center ">
   <div class="col-md-3">
     <h2>Login</h2>
-    <form class="form custom-form shadow p-3 mb-4">
+    <form action="/login" method="POST" class="form custom-form shadow p-3 mb-4">
       <div class="form-group ">
         <label for="email-login" class="h4">email:</label>
         <input class="rounded" type="text" id="email-login" />
@@ -19,25 +24,3 @@
   <div>
     <h3> or </h3>
   </div>
-
-  <div class="col-md-3">
-    <h2>Signup</h2>
-    <form class="form custom-form shadow  p-3 ">
-      <div class="form-group">
-        <label for="name-signup" class="h4">name:</label>
-        <input class="rounded" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup" class="h4">email:</label>
-        <input class="rounded" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup" class="h4">password:</label>
-        <input class="rounded" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-  </div>
-</div>
