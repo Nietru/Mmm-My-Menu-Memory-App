@@ -1,3 +1,15 @@
 body{
-    background-color: #F5F5F5;
+    background-color:lightgoldenrodyellow;
 }
+
+.custom-form{
+    border: solid gray 2px;
+    border-radius: 10px;
+    background-color: lightcyan;
+    
+}
+
+.custom-nav {
+    background-color:burlywood;
+  }
+  

@@ -5,12 +5,12 @@ router.get('/', async (req, res) => {
     try {
       
       const recipeData = await Recipe.findAll({
-        // include: [
-        //   {
-        //     model: User,
-        //     attributes: ['name'],
-        //   },
-        // ],
+        include: [
+          {
+            model: User,
+            attributes: ['name'],
+          },
+        ],
       });
   
       
@@ -25,3 +25,5 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  module.exports = router;
