@@ -1,6 +1,7 @@
 const express = require("express");
 // express-session will use cookies by default
 const session = require("express-session");
+const path = require('path');
 const routes = require("./controllers");
 const path = require("path");
 // for login and password auth via passportjs
@@ -23,6 +24,7 @@ const PORT = process.env.PORT || 3001;
 //sets up session to connect with our sequelize db
 const sess = {
   secret: "Very Secret",
+  saveUninitialized:true,
   cookie: {},
   resave: false,
   httpOnly: true,
@@ -55,10 +57,51 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
+//feature/homeroutes
+// Define the local strategy for Passport.js
+//  ------------------------------------------------------- not sure about this code yet t.t.
+// passport.use(
+//   new LocalStrategy(
+//     {
+//       usernameField: "email",
+//       passwordField: "password",
+//     },
+//     (email, password, done) => {
+//       User.findOne({
+//         where: { email: email },
+//       })
+//         .then((user) => {
+//           if (!user) {
+//             return done(null, false, { message: "Incorrect email." });
+//           }
+
+//           bcrypt.compare(password, user.password, (err, result) => {
+//             if (err) {
+//               return done(err);
+//             }
+
+//             if (!result) {
+//               return done(null, false, { message: "Incorrect password." });
+//             }
+
+//             return done(null, user);
+//           });
+//         })
+//         .catch((err) => {
+//           return done(err);
+//         });
+//     }
+//   )
+// );
+//  ------------------------------------------------------------
+
+sequelize.sync({ force: false }).then(() => {
+
 sequelize.sync({ force: true }).then(() => {
+ main
   app.listen(PORT, () =>
     console.log(
-      `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
+      `\nServer running on port ${PORT}.`
     )
   );
 });

@@ -5,11 +5,32 @@ const sequelize = require("../config/connection");
 class Ingredients extends Model {}
 
 Ingredients.init(
+//feature/homeroutes
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        ingredient_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        recipe_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'recipe',
+                key: 'id',
+            }
+        }
+
   {
     ingredient_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+// main
     },
     ingredient_name: {
       type: DataTypes.STRING,
