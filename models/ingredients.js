@@ -5,7 +5,7 @@ const sequelize = require("../config/connection");
 class Ingredients extends Model {}
 
 Ingredients.init(
-//feature/homeroutes
+
     {
         id: {
             type: DataTypes.INTEGER,
@@ -24,26 +24,9 @@ Ingredients.init(
                 key: 'id',
             }
         }
-
-  {
-    ingredient_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-// main
-    },
-    ingredient_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     //TODO: doesnt need recipe_id?  t.t.
-    recipe_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "recipe",
-        key: "id",
-      },
-    },
+    
+    
   },
   {
     sequelize,
