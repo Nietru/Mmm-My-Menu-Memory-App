@@ -28,7 +28,7 @@ Ingredients.belongsTo(Measurements,{
 
 });
 
-module.exports -
+module.exports =
   {
     User,
     Recipe,

@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
-//feature/homeroutes
+
 // Define the local strategy for Passport.js
 //  ------------------------------------------------------- not sure about this code yet t.t.
 // passport.use(
