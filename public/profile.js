@@ -20,7 +20,7 @@ if (event.target.hasAttribute('data-id')){
 
 
 
-const editRecipeHandler = async (event) =>{
+const editRecipeHandler = (event) =>{
     console.log('edit recipe clicked')
 if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
