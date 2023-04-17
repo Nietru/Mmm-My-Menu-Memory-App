@@ -22,18 +22,17 @@ Ingredients.belongsTo(Recipe, {
 
 //feature/homeroutes
 
-Ingredients.belongsTo(Measurements,{
-    foreignKey: 'ingredient_id'
+// Ingredients.belongsTo(Measurements,{
+//     foreignKey: 'ingredient_id'
 
-Ingredients.hasMany(Measurements, {
-  foreignKey: "measurement_id",
-// main
-});
+// Ingredients.hasMany(Measurements, {
+//   foreignKey: "measurement_id",
+// // main
+// });
 
-module.exports -
-  {
-    User,
-    Recipe,
-    Ingredients,
-    Measurements,
-  };
+module.exports = {
+  User,
+  Recipe,
+  Ingredients,
+  Measurements,
+};

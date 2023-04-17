@@ -1,9 +1,8 @@
 const express = require("express");
 // express-session will use cookies by default
 const session = require("express-session");
-const path = require('path');
-const routes = require("./controllers");
 const path = require("path");
+const routes = require("./controllers");
 // for login and password auth via passportjs
 const indexRouter = require("./controllers/index");
 const authRouter = require("./controllers/auth");
@@ -24,7 +23,7 @@ const PORT = process.env.PORT || 3001;
 //sets up session to connect with our sequelize db
 const sess = {
   secret: "Very Secret",
-  saveUninitialized:true,
+  saveUninitialized: true,
   cookie: {},
   resave: false,
   httpOnly: true,
@@ -96,12 +95,8 @@ app.use(routes);
 //  ------------------------------------------------------------
 
 sequelize.sync({ force: false }).then(() => {
-
-sequelize.sync({ force: true }).then(() => {
- main
-  app.listen(PORT, () =>
-    console.log(
-      `\nServer running on port ${PORT}.`
-    )
-  );
+  sequelize.sync({ force: true }).then(() => {
+    main;
+    app.listen(PORT, () => console.log(`\nServer running on port ${PORT}.`));
+  });
 });
