@@ -11,7 +11,7 @@ Recipe.belongsTo(User,{
     foreignKey: 'user_id'
 });
 
-Recipe.hasMany(Ingredients, {
+Recipe.hasMany(Measurements, {
     foreignKey: 'recipe_id',
     onDelete: 'SET NULL',
 });
@@ -25,7 +25,7 @@ Ingredients.hasMany(Measurements,{
     foreignKey: 'measurement_id'
 });
 
-module.exports - {
+module.exports = {
     User,
     Recipe,
     Ingredients,

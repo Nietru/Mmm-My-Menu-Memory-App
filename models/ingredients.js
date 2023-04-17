@@ -9,19 +9,13 @@ Ingredients.init(
         ingredient_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         ingredient_name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        recipe_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'recipe',
-                key: 'id',
-            }
-        }
+        },      
     },
     {
         sequelize,
