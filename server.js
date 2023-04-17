@@ -14,6 +14,7 @@ const exphbs = require("express-handlebars");
 // var db = require("./models");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+require("./config/passport")(passport);
 
 const sequelize = require("./config/connection");
 // initializes Sequelize with session store
@@ -24,7 +25,7 @@ const PORT = process.env.PORT || 3001;
 
 //sets up session to connect with our sequelize db
 const sess = {
-  secret: "Very Secret",
+  secret: "A private key",
   saveUninitialized: true,
   cookie: {
     expires: 600000,
@@ -45,12 +46,16 @@ const hbs = exphbs.create();
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
-
+app.get("/", (req, res) => {
+  res.render("homepage.handlebars");
+});
+// TODO: add notes for this functionality
 app.use("/", indexRouter);
 app.use("/", authRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// TODO: take a look at this, our public directory isnt acutally being used?
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);

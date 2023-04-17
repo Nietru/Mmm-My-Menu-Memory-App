@@ -9,6 +9,7 @@ passport.use(
       // telling passport what keynames to look for in the req.body
       usernameField: "email",
       passwordField: "password",
+      passReqToCallback: true,
     },
     (email, password, done) => {
       console.log(email);

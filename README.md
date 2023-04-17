@@ -26,6 +26,7 @@ In the terminal:
 - In the root directory run [npm i] to install all necessary dependencies.
 - In the db directory run [mysql -u root -p] after adding your .env file and sql information locally.
 - In the db directory (within mysql>) run [source schema.sql] and source the seed file if necessary.
+- In the root directory run [npm run devStart].
 - Open your local host PORT!
 ```
 
