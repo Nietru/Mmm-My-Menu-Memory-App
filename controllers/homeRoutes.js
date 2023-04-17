@@ -1,27 +1,71 @@
-const router = require('express').Router();
-const { Recipe } = require('../models');
+const router = require("express").Router();
+const { Recipe } = require("../models");
+const passport = require("../passport/strategies");
 
-router.get('/', async (req, res) => {
-    try {
-      
-      const recipeData = await Recipe.findAll({
-        // include: [
-        //   {
-        //     model: User,
-        //     attributes: ['name'],
-        //   },
-        // ],
-      });
+router.get("/", async (req, res) => {
+  try {
+    const recipeData = await Recipe.findAll({
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
+    });
+
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render("homepage", {
+      recipes,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/profile", async (req, res) => {
+  try {
+    // const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+    res.render("profile");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/addrecipe", async (req, res) => {
+  try {
+    res.render("addRecipe");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/recipe/:id", async (req, res) => {
+  try {
+    res.render("recipe");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/editrecipe/:id", async (req, res) => {
+  try {
+    
+    
+
+    
+    res.render("editrecipe");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
   
-      
-      const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
-  
-      // Pass serialized data and session flag into template
-      res.render('homepage', { 
-        recipes, 
-        logged_in: req.session.logged_in 
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+});
+
+
+
+
+module.exports = router;
