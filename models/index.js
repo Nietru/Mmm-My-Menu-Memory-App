@@ -20,17 +20,15 @@ Ingredients.belongsTo(Recipe, {
   foreignKey: "recipe_id",
 });
 
-//feature/homeroutes
+
 
 Ingredients.belongsTo(Measurements,{
     foreignKey: 'ingredient_id'
 
-Ingredients.hasMany(Measurements, {
-  foreignKey: "measurement_id",
-// main
+
 });
 
-module.exports -
+module.exports =
   {
     User,
     Recipe,

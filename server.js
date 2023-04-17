@@ -3,7 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const path = require('path');
 const routes = require("./controllers");
-const path = require("path");
+
 // for login and password auth via passportjs
 const indexRouter = require("./controllers/index");
 const authRouter = require("./controllers/auth");
@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
-//feature/homeroutes
+
 // Define the local strategy for Passport.js
 //  ------------------------------------------------------- not sure about this code yet t.t.
 // passport.use(
@@ -97,8 +97,8 @@ app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
 
-sequelize.sync({ force: true }).then(() => {
- main
+
+
   app.listen(PORT, () =>
     console.log(
       `\nServer running on port ${PORT}.`

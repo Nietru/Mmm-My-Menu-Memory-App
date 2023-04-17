@@ -1,0 +1,19 @@
+<div>
+{{#if logged_in}}
+<h2>Welcome, {{name}}</h2>
+{{else}}
+<h2>Welcome!</h2>
+{{/if}}
+</div>
+
+<div>
+    <h3>Here are some of our recently added recipes</h3>
+</div>
+<div class="recent-recipes">
+  {{#each recipes}}
+    <div class="recipe">
+      <h2>{{title}}</h2>
+      <p>{{description}}</p>
+    </div>
+  {{/each}}
+</div>
