@@ -20,18 +20,13 @@ Ingredients.belongsTo(Recipe, {
   foreignKey: "recipe_id",
 });
 
-
-
-Ingredients.belongsTo(Measurements,{
-    foreignKey: 'ingredient_id'
-
-
+Ingredients.belongsTo(Measurements, {
+  foreignKey: "ingredient_id",
 });
 
-module.exports =
-  {
-    User,
-    Recipe,
-    Ingredients,
-    Measurements,
-  };
+module.exports = {
+  User,
+  Recipe,
+  Ingredients,
+  Measurements,
+};
