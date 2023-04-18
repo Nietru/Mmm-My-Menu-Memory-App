@@ -3,7 +3,8 @@ const { Recipe } = require('../models')
 const recipeData = [
     {
         recipe_name: 'Pizza',
-        description: 'This pizza is good'
+        description: 'This pizza is good',
+        ingredients: '1 Cup of pizza'
     },
 ];
 
