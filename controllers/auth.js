@@ -1,11 +1,9 @@
-// login authentification route via passwordjs strategy
+// login authentification route via passportjs strategy
 const express = require("express");
 const router = express.Router();
-const passport = require("../passport/strategies");
-
-router.get("/login", function (req, res, next) {
-  res.render("login");
-});
+// this is the passport instance with configured middleware, grabbed from passport/index
+const passport = require("../passport");
+const User = require("../models/user");
 
 router.post(
   "/login",
@@ -14,5 +12,31 @@ router.post(
     failureRedirect: "/login",
   })
 );
+router.post("/sign-up", async (req, res) => {
+  console.log(req.body);
+  try {
+    const userData = await User.create(req.body);
+    req.login(userData, function (err) {
+      if (err) {
+        return next(err);
+      }
+      res.redirect("/");
+    });
+  } catch (err) {
+    // to see the error in the terminal
+    console.error(err);
+    res.status(400).json(err);
+  }
+});
+
+router.post("/logout", (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 module.exports = router;

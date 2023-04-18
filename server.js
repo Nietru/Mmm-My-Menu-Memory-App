@@ -10,12 +10,9 @@ const indexRouter = require("./controllers/index");
 const authRouter = require("./controllers/auth");
 // for handlebars
 const exphbs = require("express-handlebars");
+
 // const helpers = require("./utils/helpers");
 // var db = require("./models");
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-require("./config/passport")(passport);
-
 const sequelize = require("./config/connection");
 // initializes Sequelize with session store
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -41,6 +38,9 @@ const sess = {
 };
 
 app.use(session(sess));
+// give our session's middleware to passport:
+const passport = require("./passport");
+app.use(passport.authenticate("session"));
 
 const hbs = exphbs.create();
 
@@ -49,14 +49,14 @@ app.set("view engine", "handlebars");
 app.get("/", (req, res) => {
   res.render("homepage.handlebars");
 });
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// tells express where to find client-side code
+app.use(express.static(path.join(__dirname, "public")));
+
 // TODO: add notes for this functionality
 app.use("/", indexRouter);
 app.use("/", authRouter);
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// TODO: take a look at this, our public directory isnt acutally being used?
-app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
