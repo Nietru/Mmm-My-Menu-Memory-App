@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
 router.get("/profile", async (req, res) => {
   try {
     // const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
-
+    console.log(req.session);
     res.render("profile");
   } catch (err) {
     res.status(500).json(err);
@@ -53,19 +53,10 @@ router.get("/recipe/:id", async (req, res) => {
 
 router.get("/editrecipe/:id", async (req, res) => {
   try {
-    
-    
-
-    
     res.render("editrecipe");
   } catch (err) {
     res.status(500).json(err);
   }
-
-  
 });
-
-
-
 
 module.exports = router;
