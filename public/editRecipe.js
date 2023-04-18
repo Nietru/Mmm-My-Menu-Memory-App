@@ -50,6 +50,7 @@ const addRemoveIngredientHandler =  () => {
     }
 
   }
-
+  
+  document.querySelector('#editRecipeBtn').addEventListener('click', submitRecipeHandler)
   document.querySelector('#addIngredientBtn').addEventListener('click', addRemoveIngredientHandler)
-  document.querySelector('#submit').addEventListener('click', submitRecipeHandler)
+  
