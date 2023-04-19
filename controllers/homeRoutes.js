@@ -45,7 +45,12 @@ router.get("/addrecipe", async (req, res) => {
 
 router.get("/recipe/:id", async (req, res) => {
   try {
-    res.render("recipe");
+    const recipeData = await Recipe.findByPk(req.params.id);
+    const recipe = recipeData.get({plain:true});
+
+    res.render("recipe",{
+      ...recipe
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -53,7 +58,12 @@ router.get("/recipe/:id", async (req, res) => {
 
 router.get("/editrecipe/:id", async (req, res) => {
   try {
-    res.render("editrecipe");
+    const editRecipeData = await Recipe.findByPk(req.params.id);
+    const editRecipe = editRecipeData.get({plain:true});
+
+    res.render("editrecipe",{
+      ...editRecipe
+    });
   } catch (err) {
     res.status(500).json(err);
   }
