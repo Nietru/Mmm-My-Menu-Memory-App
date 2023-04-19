@@ -22,9 +22,25 @@ router.get('/', (req, res) => {
     });
 });
 
-//TODO: get recipes by user ID for profile page
+//get recipe by ID
+router.get('/:id', (res, req) => {
+    Recipe.findByPk(req.params.id).then((recipeData) => {
+        res.json(recipeData);
+    });
 
-//TODO: get recipe by ID
+    if (!recipeData) {
+        res.status(404).json({ message: 'No recipe found with that ID'});
+        return;
+    }
+
+    res.status(200).json(recipeData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//get recipes by User ID for profile page
+
 
 //delete route, deletes recipe
 router.delete('/:recipe_id', withAuth, async (req, res) => {
