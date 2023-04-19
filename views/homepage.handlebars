@@ -1,19 +1,20 @@
 <div>
-{{#if logged_in}}
-<h2>Welcome, {{name}}</h2>
-{{else}}
+{{!-- {{#if logged_in}} --}}
+<h2>Welcome, {{user.name}}</h2>
+{{!-- {{else}} --}}
 <h2>Welcome!</h2>
-{{/if}}
+{{!-- {{/if}} --}}
 </div>
 
 <div>
     <h3>Here are some of our recently added recipes</h3>
 </div>
 <div class="recent-recipes">
-  {{#each recipes}}
+  {{#each recipes as |recipe|}}
     <div class="recipe">
-      <h2>{{title}}</h2>
-      <p>{{description}}</p>
+      <h2><a href='/recipe/{{recipe.id}}'>{{recipe.recipe_name}}</a></h2>
+      <p>{{recipe.description}}</p>
     </div>
   {{/each}}
 </div>
+

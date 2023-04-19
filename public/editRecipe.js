@@ -50,6 +50,16 @@ const addRemoveIngredientHandler =  () => {
     }
 
   }
+
+  const deleteButtons = document.querySelectorAll('.btn-danger');
+deleteButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    // Get the parent li element of the delete button
+    const li = this.parentNode;
+    // Remove the li element from the ingredient list
+    li.parentNode.removeChild(li);
+  });
+});
   
   document.querySelector('#editRecipeBtn').addEventListener('click', submitRecipeHandler)
   document.querySelector('#addIngredientBtn').addEventListener('click', addRemoveIngredientHandler)
