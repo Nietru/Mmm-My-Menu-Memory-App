@@ -4,7 +4,6 @@
 
 - [Description](#description)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Screen-Capture](#screen-capture)
 - [Credits](#credits)
 - [License](#license)
@@ -12,12 +11,7 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+The My Menu Memory App is a RESTful API JavaScript program created using Node, express, mySQL, express, Handlebars HTML, and passportJS. As a User, the app should allow you to login or sign-up for an account and store recipes on your user-profile. Given more time, we would have liked to use passport to allow the user different methods of authentification for logging in, such as Google and/or Facebook, and a way for people to share their recipes on different platforms.
 
 ## Installation
 
@@ -30,15 +24,7 @@ In the terminal:
 - Open your local host PORT!
 ```
 
-## Usage
-
-<!-- will be added upon completion -->
-
-Provide instructions and examples for use.
-
 ## Screen-Capture
-
-<!-- image will be added upon completion -->
 
 ![Screen capture image of the homepage to the MMM! recipe application](/relative/path/to/img.jpg?raw=true)
 
