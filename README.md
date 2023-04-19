@@ -5,6 +5,7 @@
 - [Description](#description)
 - [Installation](#installation)
 - [Screen-Capture](#screen-capture)
+- [Deployment](#deployment)
 - [Credits](#credits)
 - [License](#license)
 - [Contribution](#contribution)
@@ -26,7 +27,11 @@ In the terminal:
 
 ## Screen-Capture
 
-![Screen capture image of the homepage to the MMM! recipe application](/relative/path/to/img.jpg?raw=true)
+![Screen capture image of the homepage to the MMM! recipe application](/img/Capture.PNG?raw=true)
+
+## Deployment
+
+Heroku:
 
 ## Credits
 
