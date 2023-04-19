@@ -1,8 +1,8 @@
-const sequelize = require('../config/connection');
-const { User, Recipe } = require('../models');
+const sequelize = require("../config/connection");
+const { User, Recipe } = require("../models");
 
-const userData = require('./userData.json');
-const recipeData = require('./recipe-seeds.js');
+const userData = require("./userData.json");
+const recipeData = require("./recipe-seeds.js");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -13,7 +13,6 @@ const seedDatabase = async () => {
   });
 
   await recipeData();
-
 
   process.exit(0);
 };
