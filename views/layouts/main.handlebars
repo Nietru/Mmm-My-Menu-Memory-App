@@ -26,17 +26,22 @@
                 <!-- Links -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:3001/">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:3001/addrecipe">Add recipe</a>
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="/addrecipe">Add recipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:3001/login">Login</a>
+                        <a class="nav-link" id="logout" href="/">Logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:3001/profile">Profile</a>
+                        <a class="nav-link" href="/profile">Profile</a>
                     </li>
+                 
                 </ul>
         
                 <form class="form-inline my-2 my-lg-0">
@@ -50,6 +55,8 @@
     <main>
         {{{ body }}}
     </main>
-
+    {{#if logged_in}}
+<script src="../../public/logout.js"></script>
+{{/if}}
 </body>
 </html>

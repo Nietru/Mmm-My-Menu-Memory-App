@@ -46,9 +46,10 @@ const hbs = exphbs.create();
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
-app.get("/", (req, res) => {
-  res.render("homepage.handlebars");
-});
+//what is this used for? breaks homeroute and over rides current homeroutes "/" path
+// app.get("/", (req, res) => {
+//   res.render("homepage.handlebars");
+// });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // tells express where to find client-side code

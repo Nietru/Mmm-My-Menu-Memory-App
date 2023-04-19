@@ -17,7 +17,7 @@ router.post('/', withAuth, async (req, res) => {
 
 //get all recipes for homepage
 router.get('/', (req, res) => {
-    Recipe.findAll().then(recipeData) => {
+    Recipe.findAll().then((recipeData) => {
         res.json(recipeData);
     });
 });
@@ -45,7 +45,7 @@ router.delete('/:recipe_id', withAuth, async (req, res) => {
     } catch(err) {
         res.status(500).json(err);
     }
-    }
+    
 });
 
 module.exports = router;
