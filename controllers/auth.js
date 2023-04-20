@@ -30,13 +30,17 @@ router.post("/sign-up", async (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
+  if (req.isAuthenticated()) {
+    req.logout(function(err) {
+      if (err) {
+        console.log(err);
+      }
       res.status(204).end();
     });
   } else {
     res.status(404).end();
   }
 });
+
 
 module.exports = router;

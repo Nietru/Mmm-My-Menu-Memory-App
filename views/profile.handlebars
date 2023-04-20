@@ -6,17 +6,17 @@
   <div class="col-md-6">
     <h3>Your recipes:</h3>
 
-    {{!-- {{#each recipes as |recipe|}} --}}
+    {{#each recipes as |recipe|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/???????/{{recipe.id}}">{{recipe.title}}</a></h4>
+        <h4><a href="/recipe/{{recipe.id}}">{{recipe.recipe_name}}</a></h4>
       </div>
       <div class="col-md-4">
         <button id="delete" class="btn btn-sm btn-danger" data-id="{{recipe.id}}">DELETE</button>
         <button id="edit" class="btn btn-sm " data-id="{{recipe.id}}">EDIT</button>
       </div>
     </div>
-    {{!-- {{/each}} --}}
+    {{/each}}
   </div>
   {{!-- {{/if}} --}}
 </div>

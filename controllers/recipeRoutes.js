@@ -1,16 +1,18 @@
 const router = require("express").Router();
-const { Recipe } = require("../models/recipe");
+const { Recipe } = require("../models");
 const passport = require("../passport/strategies");
 
 // post route, posts new recipe
-router.post('/', withAuth, async (req, res) => {
-    try{
+router.post('/', async (req, res) => {
+    try{ 
         const newRecipe = await Recipe.create({
+            user_id:req.user.id,
             ...req.body,
-            user_id: req.session.user_id,
+           
         });
         res.status(200).json(newRecipe);
     } catch (err) {
+        console.log(err)
         res.status(400).json(err);
     }
 });
@@ -23,7 +25,8 @@ router.get('/', (req, res) => {
 });
 
 //get recipe by ID
-router.get('/:id', (res, req) => {
+router.get('/:id', (req, res) => {
+    try {
     Recipe.findByPk(req.params.id).then((recipeData) => {
         res.json(recipeData);
     });
@@ -43,12 +46,12 @@ router.get('/:id', (res, req) => {
 
 
 //delete route, deletes recipe
-router.delete('/:recipe_id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const recipeData = await Recipe.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
+                user_id: req.user.id
             },
         });
 
@@ -64,6 +67,24 @@ router.delete('/:recipe_id', withAuth, async (req, res) => {
     
 });
 
-module.exports = router;
+router.put('/:id', async (req, res) => {
+    try{ 
+        const newRecipe = await Recipe.update({
+            
+            ...req.body,
+           
+        }, 
+            {
+                where: {
+                id: req.params.id,
+            }
+        }
+        );
+        res.status(200).json(newRecipe);
+    } catch (err) {
+        console.log(err)
+        res.status(400).json(err);
+    }
+});
 
-//channge
+module.exports = router;
