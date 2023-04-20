@@ -1,8 +1,9 @@
 <div>
-{{!-- {{#if logged_in}} --}}
-<h2>Welcome, {{user.username}}</h2>
-{{!-- {{else}} --}}
-{{!-- {{/if}} --}}
+{{#if logged_in}}
+<h2>Welcome, {{user.username}}!</h2>
+{{else}}
+<h2>Welcome!</h2>
+{{/if}}
 </div>
 
 <div>
