@@ -20,6 +20,9 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
 //sets up session to connect with our sequelize db
 const sess = {
   secret: "A private key",

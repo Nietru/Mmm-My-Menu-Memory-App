@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const recipeRoute = require("./recipeRoutes")
 // const apiRoutes = require("./api");
 const homeRoutes = require("./homeRoutes");
 const authRoutes = require("./auth");
@@ -12,4 +12,5 @@ router.use("/auth", authRoutes);
 // router.use("/api", apiRoutes);
 router.use("/", htmlRoutes);
 
+router.use("/recipe",recipeRoute);
 module.exports = router;
