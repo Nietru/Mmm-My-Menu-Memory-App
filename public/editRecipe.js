@@ -19,37 +19,36 @@ const addRemoveIngredientHandler =  () => {
     }
   };
 
-  const submitRecipeHandler = async (event)=>{
+  const submitRecipeHandler = async (event) => {
     event.preventDefault();
-
-    const recipeName = document.querySelector('#recipe-title').value.trim;
+  
+    const recipeName = document.querySelector('#recipe-title').value.trim();
     const description = document.querySelector('#description').value;
-    const ingredients = document.querySelectorAll('#ingredientsList li');
-    const ingredientListArr = Array.from(ingredients);
+    const ingredients = document.querySelectorAll('.ingredientList li');
+    const ingredientListArr = Array.from(ingredients).map(li => li.textContent.replace('Delete', '').trim());
     const instructions = document.querySelector('#instructions').value;
-
-    if (recipeName && description && ingredientListArr && instructions){
-
-        const response = await fetch('/api/addrecipe',{
-            method:'POST',
-            body:JSON.stringify({
-                 recipeName,
-                 description, 
-                 ingredientListArr, 
-                 instructions}),
-            headers:{
-                'Content-Type':'application/json',
-            },
-        })
-        if (response.ok){
-            document.location.replace('/');
-        } else {
-            alert('Failed to create recipe');
+  console.log("submit handler")
+    if (recipeName && description && instructions) {
+      const id = event.target.getAttribute('data-id');
+      const response = await fetch(`/recipe/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          recipe_name: recipeName,
+          description: description,
+          ingredients: ingredientListArr,
+          instructions: instructions
+        }),
+        headers: {
+          'Content-Type': 'application/json'
         }
-
+      });
+      if (response.ok) {
+        document.location.replace('/');
+      } else {
+        alert('Failed to create recipe');
+      }
     }
-
-  }
+  };
 
   const deleteButtons = document.querySelectorAll('.btn-danger');
 deleteButtons.forEach(button => {

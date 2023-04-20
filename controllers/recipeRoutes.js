@@ -67,4 +67,24 @@ router.delete('/:recipe_id', async (req, res) => {
     
 });
 
+router.put('/:id', async (req, res) => {
+    try{ 
+        const newRecipe = await Recipe.update({
+            
+            ...req.body,
+           
+        }, 
+            {
+                where: {
+                id: req.params.id,
+            }
+        }
+        );
+        res.status(200).json(newRecipe);
+    } catch (err) {
+        console.log(err)
+        res.status(400).json(err);
+    }
+});
+
 module.exports = router;
