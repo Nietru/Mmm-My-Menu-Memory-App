@@ -1,5 +1,6 @@
 const LocalStrategy = require("passport-local");
 const bcrypt = require("bcrypt");
+const User = require("../models/user");
 // Define the local strategy for Passport.js
 module.exports = function (passport) {
   passport.use(
@@ -8,10 +9,9 @@ module.exports = function (passport) {
         // telling passport what keynames to look for in the req.body
         usernameField: "email",
         passwordField: "password",
-        passReqToCallback: true,
+        // passReqToCallback: true,
       },
       (email, password, done) => {
-        console.log(email);
         User.findOne({
           where: { email: email },
         })

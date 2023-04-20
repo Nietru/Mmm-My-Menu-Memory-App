@@ -59,9 +59,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // TODO: add notes for this functionality
-app.use("/", indexRouter);
-app.use("/", authRouter);
-
+// app.use("/", indexRouter);
+// app.use("/", authRouter);
+app.use(function (req, res, next) {
+  console.log(req.session);
+  next();
+});
 app.use(routes);
 
 sequelize.sync({ force: false }).then(function () {
