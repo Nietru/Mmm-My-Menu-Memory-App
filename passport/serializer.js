@@ -2,7 +2,7 @@ var User = require("../models/user");
 
 // Tells sequelize how to use the User in a request/response.
 module.exports = function (passport) {
-  passport.serializeUser(function (user, done) {
+  passport.serializeUser(function (req, user, done) {
     //stores user to the session
     console.log("SERIALIZE:", user);
     User.findOne({ where: { email: user.email } }).then(function (user) {

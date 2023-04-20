@@ -6,7 +6,7 @@ const passport = require("../passport/strategies");
 router.post('/', async (req, res) => {
     try{ 
         const newRecipe = await Recipe.create({
-            
+            user_id:req.user.id,
             ...req.body,
            
         });

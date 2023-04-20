@@ -32,6 +32,7 @@ const submitRecipeHandler = async (event) => {
     const response = await fetch('/recipe', {
       method: 'POST',
       body: JSON.stringify({
+       
         recipe_name: recipeName,
         description: description,
         ingredients: ingredientListArr,
