@@ -12,6 +12,10 @@
 
 ## Description
 
+AS a busy person,
+I WANT an app that I can store and view recipes on
+SO THAT I can find a meal to make
+
 The My Menu Memory App is a RESTful API JavaScript program created using Node, express, mySQL, express, Handlebars HTML, and passportJS. As a User, the app should allow you to login or sign-up for an account and store recipes on your user-profile. Given more time, we would have liked to use passport to allow the user different methods of authentification for logging in, such as Google and/or Facebook, and a way for people to share their recipes on different platforms.
 
 ## Installation
@@ -31,18 +35,16 @@ In the terminal:
 
 ## Deployment
 
-Heroku:
+Heroku: https://dry-river-65184.herokuapp.com/
 
 ## Credits
 
 UNH Full-Stack Web Development Collaborators:
 
-```
-1. Ryan Bernier    - https://github.com/Frostysnacks
-2. Roslyn Maxwell  - https://github.com/rtmaxwell12
-3. Brett Hicklin   - https://github.com/brett-hicklin
+1. Ryan Bernier - https://github.com/Frostysnacks
+2. Roslyn Maxwell - https://github.com/rtmaxwell12
+3. Brett Hicklin - https://github.com/brett-hicklin
 4. Tifannie Truman - https://github.com/Nietru
-```
 
 ## License
 
