@@ -2,7 +2,7 @@ const deleteRecipeHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
 
-    const response = await fetch(`/api/recipe/${id}`, {
+    const response = await fetch(`/recipe/${id}`, {
       method: "DELETE",
     });
 
