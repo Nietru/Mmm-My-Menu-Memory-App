@@ -34,7 +34,7 @@ router.get("/profile", async (req, res) => {
     });
     const user = userData.get({ plain: true });
     console.log("test log for",user)
-    // const userData = await User
+   
     // console.log(user.passport.user.id)
     // const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
     res.render("profile",{
