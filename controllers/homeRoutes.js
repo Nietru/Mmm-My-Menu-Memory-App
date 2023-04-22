@@ -76,11 +76,12 @@ router.get("/editrecipe/:id", async (req, res) => {
     const editRecipeData = await Recipe.findByPk(req.params.id);
     const editRecipe = editRecipeData.get({plain:true});
 
-    res.render("editrecipe",{
+    res.render("editRecipe",{
       ...editRecipe,
       logged_in:req.isAuthenticated(),
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
