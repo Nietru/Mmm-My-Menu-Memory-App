@@ -35,7 +35,7 @@ In the terminal:
 
 ## Deployment
 
-Heroku: https://dry-river-65184.herokuapp.com/
+Heroku: https://cryptic-brushlands-31143.herokuapp.com/
 
 ## Credits
 

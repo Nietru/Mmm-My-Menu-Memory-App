@@ -34,7 +34,7 @@ router.get("/profile", async (req, res) => {
     });
     const user = userData.get({ plain: true });
     console.log("test log for",user)
-    // const userData = await User
+   
     // console.log(user.passport.user.id)
     // const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
     res.render("profile",{
@@ -76,11 +76,12 @@ router.get("/editrecipe/:id", async (req, res) => {
     const editRecipeData = await Recipe.findByPk(req.params.id);
     const editRecipe = editRecipeData.get({plain:true});
 
-    res.render("editrecipe",{
+    res.render("editRecipe",{
       ...editRecipe,
       logged_in:req.isAuthenticated(),
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
